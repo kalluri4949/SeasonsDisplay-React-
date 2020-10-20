@@ -1,17 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDom from 'react-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// const App = () => {
+//   window.navigator.geolocation.getCurrentPosition(
+//     (success) => {
+//       console.log(success);
+//     },
+//     (error) => {
+//       console.log(error);
+//     }
+//   );
+//   return <div>Hi there</div>;
+// };
+class App extends React.Component {
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      (success) => {
+        console.log(success);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    return <div>Latitude:</div>;
+  }
+}
+ReactDom.render(<App />, document.querySelector('#root'));
